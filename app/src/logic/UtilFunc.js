@@ -1,5 +1,4 @@
 
-
 export function getHeaderToken(){
     var accessToken = localStorage.getItem('accessToken');
     accessToken = accessToken.replace("Bearer ", "");
@@ -12,11 +11,11 @@ export function getHeaderToken(){
 
 export function checkAuthToken(){
     var accessToken = localStorage.getItem('accessToken');
-    if (accessToken == 'null' || accessToken == undefined)
+    if (accessToken === 'null' || accessToken === undefined)
         return false;
     
     var refreshToken = localStorage.getItem('refreshToken');
-    if (refreshToken == 'null' || refreshToken == undefined)
+    if (refreshToken === 'null' || refreshToken === undefined)
         return false;
 
     return true;
@@ -31,5 +30,11 @@ export function printError(request, textStatus, error){
 export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+  export function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
 
   // eslint-disable-line eqeqeq
