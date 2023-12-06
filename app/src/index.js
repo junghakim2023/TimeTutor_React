@@ -4,6 +4,7 @@ import './index.css';
 import './assets/dist/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
 import Auth from './component/Auth.js'
+import TutorChat from './component/TutorChat.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -33,6 +34,7 @@ root.render(
           </div>
         </nav>
       </header>
+      <TutorChat/>
     </div>
   </React.StrictMode>
 );

@@ -1,8 +1,12 @@
 
 export function getHeaderToken(){
     var accessToken = localStorage.getItem('accessToken');
+    if (accessToken == null)
+        return;
     accessToken = accessToken.replace("Bearer ", "");
     
+    if (refreshToken == null)
+        return;
     var refreshToken = localStorage.getItem('refreshToken');
     refreshToken = refreshToken.replace("Bearer ", "");
     var tokens = {'Authorization':  accessToken, 'Authorization-Refresh' :  refreshToken};
@@ -11,11 +15,11 @@ export function getHeaderToken(){
 
 export function checkAuthToken(){
     var accessToken = localStorage.getItem('accessToken');
-    if (accessToken === 'null' || accessToken === undefined)
+    if (accessToken === null)
         return false;
     
     var refreshToken = localStorage.getItem('refreshToken');
-    if (refreshToken === 'null' || refreshToken === undefined)
+    if (refreshToken === null)
         return false;
 
     return true;

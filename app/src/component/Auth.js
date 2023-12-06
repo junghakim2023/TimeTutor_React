@@ -120,9 +120,7 @@ export default class Auth extends React.Component {
       $.ajax({
           url : `${process.env.REACT_APP_BACKEND_URL}/getTokenInfo`,
           type : 'GET',
-          header: {
-            'Access-Control-Allow-Origin': "*"
-          },
+          header: {'Access-Control-Allow-Origin': "*"},
           data : {
               tokenKey : tokenKey
           },
