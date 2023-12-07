@@ -11,15 +11,27 @@ export default class TutorChat extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            lowData:null
+            lowData:null,
+            deviceHeight: window.innerHeight,
 
           };
       }
 
+    handleResize = () => {
+        this.setState({
+          deviceHeight: window.innerHeight,
+        });
+      };
     componentDidUpdate(prevProps) {
       this.scrollToBottom();
+      this.handleResize();
+
+  
+      window.addEventListener('resize', this.handleResize);
     }
-    
+    componentWillUnmount() {
+      window.removeEventListener('resize', this.handleResize);
+    }
 
     componentDidMount() {
 
@@ -78,7 +90,7 @@ export default class TutorChat extends React.Component {
                             </div>
                         </div>
                         <div className="position-relative">
-                        <div id="chattingArea" className="chat-messages p-4" ref={this.chatMessagesRef}>
+                        <div id="chattingArea" style={{height:this.state.deviceHeight, maxHeight:this.state.deviceHeight}}className="chat-messages p-4" ref={this.chatMessagesRef}>
                             <ChatArea lowData={this.state.lowData} />
                         </div>
                             <ChatController propFunction={this.highFunction} additionalProps={this.props.value}/>

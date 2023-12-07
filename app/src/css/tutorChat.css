@@ -30,15 +30,7 @@ answer {
     color: #e4606d
 }
 
-.chat-messages[data-touchable= 'true'] {
-    display: flex;
-    flex-direction: column;
-    height:480px;
-    max-height: 480px;
-    overflow-y: scroll
-  }
-  
-.chat-messages:not([data-touchable= 'true']) {
+.chat-messages {
     display: flex;
     flex-direction: column;
     height:600px;
