@@ -60,7 +60,7 @@ export default class Auth extends React.Component {
       },
       'error':(request, textStatus, error)=>{
           Utils.printError(request, textStatus, error)
-          this.logout();
+          this.logoutBtn();
       }
       });
 }

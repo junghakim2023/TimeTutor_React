@@ -23,18 +23,19 @@ export default class TutorChat extends React.Component {
         });
       };
     componentDidUpdate(prevProps) {
-      this.scrollToBottom();
-      this.handleResize();
+      if (prevProps.messages !== this.props.messages) {
+        this.handleResize();
+      }
 
-  
-      window.addEventListener('resize', this.handleResize);
+      this.scrollToBottom();
     }
+
     componentWillUnmount() {
       window.removeEventListener('resize', this.handleResize);
     }
 
     componentDidMount() {
-
+      window.addEventListener('resize', this.handleResize);
     }
 
     highFunction = (data) => {
@@ -90,7 +91,7 @@ export default class TutorChat extends React.Component {
                             </div>
                         </div>
                         <div className="position-relative">
-                        <div id="chattingArea" style={{height:this.state.deviceHeight, maxHeight:this.state.deviceHeight}}className="chat-messages p-4" ref={this.chatMessagesRef}>
+                        <div id="chattingArea" style={{height:this.state.deviceHeight-225, maxHeight:this.state.deviceHeight-225}}className="chat-messages p-4" ref={this.chatMessagesRef}>
                             <ChatArea lowData={this.state.lowData} />
                         </div>
                             <ChatController propFunction={this.highFunction} additionalProps={this.props.value}/>
