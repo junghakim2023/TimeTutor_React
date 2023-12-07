@@ -30,13 +30,22 @@ answer {
     color: #e4606d
 }
 
-.chat-messages {
+.chat-messages[data-touchable= 'true'] {
     display: flex;
     flex-direction: column;
-    height:579px;
-    max-height: 579px;
+    height:480px;
+    max-height: 480px;
     overflow-y: scroll
-}
+  }
+  
+.chat-messages:not([data-touchable= 'true']) {
+    display: flex;
+    flex-direction: column;
+    height:600px;
+    max-height: 600px;
+    overflow-y: scroll
+  }
+
 
 .chat-message-left,
 .chat-message-right {
