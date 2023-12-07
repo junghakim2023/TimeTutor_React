@@ -415,7 +415,7 @@ export default class ChatController extends React.Component {
                   padding: '7px',
                   border: '1px solid darkgray',
                   height: '6%',
-                  width: '80%',
+                  width: '75%',
                   borderRadius: '7px',
                 }}
                 placeholder="Type your message"
@@ -428,14 +428,14 @@ export default class ChatController extends React.Component {
               <button
                 onClick={() => this.sendAnswer()}
                 className="btn btn-primary"
-                style={{ width: '8%', marginLeft:'10px', marginRight:'10px', borderRadius:'7px'}}
+                style={{ width: '10%', marginLeft:'10px', marginRight:'10px', borderRadius:'7px'}}
               >
               ▶
                </button>
               <button
                 onClick={() => this.changeTo('menu')}
                 className="btn btn-primary"
-                style={{ width: '8%', borderRadius:'7px' }}
+                style={{ width: '10%', borderRadius:'7px' }}
               >
                 X
               </button>
