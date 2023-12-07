@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import * as Utils from '../logic/UtilFunc.js'
+import '../css/tutorChat.css'
 
 export default class Auth extends React.Component {
     constructor(props){
@@ -167,12 +168,10 @@ export default class Auth extends React.Component {
       render() {
         return (
             <>
-            <span style={{ width: '10px' }}></span>
-            <li className="nav-link active" id="welcomeText" style={{ display: 'none' }}>Welcome! </li>
-            <button className="btn btn-outline-success comming-soon">Signup</button>
-            <span style={{ width: '10px' }}></span>
-            <button onClick={()=> this.loginBtn()}   className="btn btn-outline-success" id="loginBtn">Login</button>
-            <button onClick={()=> this.logoutBtn()}   className="btn btn-outline-success" style={{ display: 'none' }} id="logoutBtn">Logout</button>
+            <li className="nav-item active" id="welcomeText" style={{ display: 'none', color:'white',paddingRight: '7px'}}>Welcome! </li>
+            <button onClick={()=> alert("Comming Soon!")} className="nav-item active nav-item2" id="signup" style={{ display:'block',transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }}>Signup</button>
+            <button onClick={()=> this.loginBtn()}   className="nav-item active nav-item2" style={{ transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out'}} id="loginBtn">Login</button>
+            <button onClick={()=> this.logoutBtn()}   className="nav-item active nav-item2" style={{ display: 'none',transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }} id="logoutBtn">Logout</button>
             </>
         );
       }

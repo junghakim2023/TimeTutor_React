@@ -66,3 +66,19 @@ answer {
 
     border-top: 1px solid #dee2e6!important;
 }
+
+  
+ @media (pointer: coarse) { 
+    .nav-item2{width: 100%;margin-bottom:6px;margin-top: 6px;}
+  }
+  
+@media (pointer: fine) {
+    .nav-item2{padding-right:13px;padding-left: 13px; padding-top:6px;padding-bottom: 6px; margin-right:6px;margin-left: 6px;}
+  }
+
+
+.nav-item2{border: 1px solid; border-radius: 6px; text-align: center;background-color: #212529; color: rgb(201 199 205);}
+.nav-item2:hover{
+    color : rgb(134, 128, 128);
+    text-decoration: none;
+  }
