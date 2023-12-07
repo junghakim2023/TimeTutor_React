@@ -2,12 +2,12 @@ import React from 'react';
 import $ from 'jquery';
 import * as Utils from '../logic/UtilFunc.js'
 
-
 export default class Auth extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            loginServerURL: null
+            loginServerURL: null,
+            highFunc : props.propFunction
           };
 
 
@@ -46,9 +46,10 @@ export default class Auth extends React.Component {
   $.ajax({
       'url' : `${process.env.REACT_APP_BACKEND_URL}/token/refresh/accessToken`,
       'type' : 'POST',
-      'header': {
-          'Access-Control-Allow-Origin': "*"
-        },
+      'headers': {
+        'Access-Control-Allow-Origin': '*',
+        ...Utils.getHeaderToken(),
+      },
       'data' : {refresh},
       'success' : (data, status, request)=> {
           if (data.accessToken !== 'null' && data.accessToken !== undefined){
@@ -66,13 +67,14 @@ export default class Auth extends React.Component {
 
   requestCheckLogin(){
   var valid = false;
+
   $.ajax({
       'url' : `${process.env.REACT_APP_BACKEND_URL}/checkLogin`,
       'type' : 'GET',
-      'header': {
-        'Access-Control-Allow-Origin': "*"
+      'headers': {
+        'Access-Control-Allow-Origin': '*',
+        ...Utils.getHeaderToken(),
       },
-      'headers': Utils.getHeaderToken(),
       'success' : (data, status, request) =>{
           if (data === 'VALID') valid = true;
           else if(data === 'EXPIRED')
@@ -96,11 +98,13 @@ export default class Auth extends React.Component {
       $('#logoutBtn').css("display", "block");
       $('#welcomeText').css("display", "block");
       $('#welcomeText').text("Welcome "+ localStorage.getItem('userName') +"!");
+      this.state.highFunc(true);
   }
   else{
       $('#loginBtn').css("display", "block");
       $('#logoutBtn').css("display", "none");
       $('#welcomeText').css("display", "none");
+      this.state.highFunc(false);
   }
   }
 
@@ -141,6 +145,8 @@ export default class Auth extends React.Component {
 
       checkLogin(){
         const tokenKey = Utils.getQueryParam('tokenKey');
+        this.state.highFunc(null);
+ 
         if (tokenKey !== null){
             this.setTokenInfo(tokenKey)
         }

@@ -1,23 +1,40 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import '../css/tutorChat.css'
 import './ChatController.js'
 import ChatController from './ChatController.js';
 import ChatArea from './ChatArea.js';
 
-export default class Auth extends React.Component {
+var list = []
+export default class TutorChat extends React.Component {
+    chatMessagesRef = React.createRef();
+
     constructor(props){
         super(props);
         this.state = {
             lowData:null
+
           };
       }
+
+    componentDidUpdate(prevProps) {
+      this.scrollToBottom();
+    }
+    
 
     componentDidMount() {
 
     }
 
     highFunction = (data) => {
-        this.setState({ lowData: data });
+      list.push(data);
+        this.setState({ lowData: list });
+      }
+
+      scrollToBottom() {
+        if (this.chatMessagesRef.current) {
+          // chat-messages 요소의 scrollHeight로 스크롤을 조정
+          this.chatMessagesRef.current.scrollTop = this.chatMessagesRef.current.scrollHeight;
+        }
       }
 
     render() {
@@ -28,7 +45,7 @@ export default class Auth extends React.Component {
                 <h1 className="h3 mb-3"></h1>
                 <div className="card" style={{ height: '99%' }}>
                   <div className="row g-0" style={{ height: '80%' }}>
-                    <div className="col-12 col-lg-5 col-xl-3 border-right">
+                    <div className="col-12 col-lg-5 col-xl-3 border-right " style={{borderRightColor: "#FF0000", borderRight: "solid 1px #e9e9e9"}}>
                       <div className="px-4 d-none d-md-block">
                         <div className="d-flex align-items-center">
                           <div className="flex-grow-1">
@@ -61,10 +78,10 @@ export default class Auth extends React.Component {
                             </div>
                         </div>
                         <div className="position-relative">
-                        <div id="chattingArea" className="chat-messages p-4">
-                            <ChatArea lowData={this.state.lowData}/>
+                        <div id="chattingArea" className="chat-messages p-4" ref={this.chatMessagesRef}>
+                            <ChatArea lowData={this.state.lowData} />
                         </div>
-                            <ChatController propFunction={this.highFunction}/>
+                            <ChatController propFunction={this.highFunction} additionalProps={this.props.value}/>
 
                     </div>
                     </div>

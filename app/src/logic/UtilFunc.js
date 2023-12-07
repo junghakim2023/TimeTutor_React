@@ -5,9 +5,10 @@ export function getHeaderToken(){
         return;
     accessToken = accessToken.replace("Bearer ", "");
     
+    var refreshToken = localStorage.getItem('refreshToken');
     if (refreshToken == null)
         return;
-    var refreshToken = localStorage.getItem('refreshToken');
+   
     refreshToken = refreshToken.replace("Bearer ", "");
     var tokens = {'Authorization':  accessToken, 'Authorization-Refresh' :  refreshToken};
     return tokens;

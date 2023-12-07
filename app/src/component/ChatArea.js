@@ -1,25 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import Chat from './Chat.js'
 
-const list = []
+var list = []
 export const ChatArea = props => {
     useEffect(() => {
         if (props.lowData == null)
             return;
-            const chat = {};
-            chat['name'] = 'asdf';
-            chat['contents'] = props.lowData;
-            list.push(chat);
-          }, [props.lowData]);
-          
 
-        return (
+          }, [props.lowData]);
+    
+
+          return (
             <>
-            {list.map((info, index) => (
-                <Chat value={info}/>
-            ))}
+              {props.lowData != null && props.lowData.map((info, index) => (
+                <Chat value={info} key={index} />
+              ))}
             </>
-        );
+          );
 }; 
 
 export default ChatArea;

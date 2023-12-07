@@ -28,8 +28,8 @@ good {
 .chat-messages {
     display: flex;
     flex-direction: column;
-    height:92%;
-    max-height: 92%;
+    height:650px;
+    max-height: 650px;
     overflow-y: scroll
 }
 
