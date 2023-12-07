@@ -17,6 +17,11 @@ good {
     color: #555;
 }
 
+answer {
+    background-color: rgb(233, 233, 233);
+    color: #555;
+}
+
 .chat-online {
     color: #34ce57
 }

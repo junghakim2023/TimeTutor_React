@@ -224,7 +224,8 @@ export default class ChatController extends React.Component {
             correct = true;
         }else{
             let check = "[check] <br>";
-            var message = check + text;
+            let answer = "<answer>"+this.state.questionInfo.answer + "</answer> <br>";
+            var message = check + answer + text;
             this.addTutorMessage(message, null, true);
         }
     
