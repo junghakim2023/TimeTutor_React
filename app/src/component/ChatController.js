@@ -5,12 +5,14 @@ import '../css/tutorChat.css';
 import { diffChars } from 'diff';
 
 export default class ChatController extends React.Component {
+   
     constructor(props){
         super(props);
         this.state = {
             questionInfo:null,
             updateFunc:props.propFunction,
-            login: null
+            login: null,
+            originalHeight:0,
           };
       }
 
@@ -121,6 +123,24 @@ export default class ChatController extends React.Component {
         $("#qnaMakingArea").css("display", qnaMakerAreaShow);
         $("#rescheduleArea").css("display", rescheduleAreaShow);
 
+
+        if (area == "qnaMaking"){
+          var origin = $("#chattingArea").css("height");
+          origin = origin.replace("px","");
+
+          this.setState({originalHeight: parseInt(origin)})
+
+          $("#chattingArea").css("height", origin - 100 + "px");
+          $("#chattingArea").css("maxHeight", origin - 100 + "px");
+        }
+
+        if (this.state.originalHeight != 0){
+            if (area != "qnaMaking"){
+              $("#chattingArea").css("height", this.state.originalHeight + "px");
+              $("#chattingArea").css("maxHeight", this.state.originalHeight + "px");
+            }
+        }
+
     }
 
     qnaMakingBtnClick (){
@@ -131,7 +151,6 @@ export default class ChatController extends React.Component {
         
         this.changeTo("qnaMaking");
         $("#questionInput").focus();
-        $("#ChatFunctingArea").css("height", "80%");
     }
 
 
@@ -476,7 +495,7 @@ export default class ChatController extends React.Component {
               </button>
             </div>
             
-            <div id="qnaMakingArea" style={{ textAlign: 'center' }}>
+            <div id="qnaMakingArea" style={{ textAlign: 'left' }}>
               <input
                 autoComplete="off"
                 id="questionInput"
@@ -505,7 +524,7 @@ export default class ChatController extends React.Component {
               <button
                 onClick={() => this.sendQnA()}
                 className="btn btn-primary"
-                style={{ width: '85%', marginRight:'10px' }}
+                style={{ width: '85%', marginRight:'5%' }}
               >
                 Send
               </button>
