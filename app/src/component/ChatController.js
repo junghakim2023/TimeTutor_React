@@ -482,6 +482,11 @@ export default class ChatController extends React.Component {
                 type="text"
                 className="form-control"
                 placeholder="Type your Question"
+                onKeyPress={(event) => {
+                  if (event.key === 'Enter') {
+                    $("#answerInput").focus();
+                  }
+                }}
               />
               <input
                 autoComplete="off"
