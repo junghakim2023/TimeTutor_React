@@ -174,7 +174,7 @@ export default class Auth extends React.Component {
         return (
             <>
             <li className="nav-item active" id="welcomeText" style={{ display: 'none', color:'white',paddingRight: '7px'}}>Welcome! </li>
-            <button onClick={()=> this.signupBtn()} className="nav-item active nav-item2" style={{ transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }}>Signup</button>
+            <button onClick={()=> this.signupBtn()} id="signupBtn" className="nav-item active nav-item2" style={{ transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }}>Signup</button>
             <button onClick={()=> this.loginBtn()}   className="nav-item active nav-item2" style={{ transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out'}} id="loginBtn">Login</button>
             <button onClick={()=> this.logoutBtn()}   className="nav-item active nav-item2" style={{ display: 'none',transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }} id="logoutBtn">Logout</button>
             </>
