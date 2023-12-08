@@ -315,9 +315,10 @@ export default class ChatController extends React.Component {
                 
           },
             error:(request, textStatus, error)=>{
-                Utils.printError(request, textStatus, error);
-                alert("You need to log in to use the service");
-                window.location.href="/";
+                  Utils.printError(request, textStatus, error);
+                  if (request.status != 501)
+                    alert("You need to log in to use the service");
+                  window.location.href="/";
             }
             });
     }

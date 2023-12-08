@@ -42,28 +42,29 @@ export default class Auth extends React.Component {
     }
 
   renewAccessToken(){
-  var refresh = localStorage.getItem('refreshToken');
-  refresh = refresh.substr(7);
-  $.ajax({
-      'url' : `${process.env.REACT_APP_BACKEND_URL}/token/refresh/accessToken`,
-      'type' : 'POST',
-      'headers': {
-        'Access-Control-Allow-Origin': '*',
-        ...Utils.getHeaderToken(),
-      },
-      'data' : {refresh},
-      'success' : (data, status, request)=> {
-          if (data.accessToken !== 'null' && data.accessToken !== undefined){
-              localStorage.setItem('accessToken', "Bearer " + data.accessToken);
-              window.location.href = "/";
-          }
-          
-      },
-      'error':(request, textStatus, error)=>{
-          Utils.printError(request, textStatus, error)
-          this.logoutBtn();
-      }
-      });
+    var refresh = localStorage.getItem('refreshToken');
+    refresh = refresh.substr(7);
+    $.ajax({
+        'url' : this.state.loginServerURL+ '/token/refresh/accessToken',
+        'type' : 'POST',
+        'headers': {
+          'Access-Control-Allow-Origin': '*',
+          ...Utils.getHeaderToken(),
+        },
+        'data' : {refresh},
+        'success' : (res, status, request)=> {
+            var data = JSON.parse(res);
+            if (data.accessToken !== 'null' && data.accessToken !== undefined){
+                localStorage.setItem('accessToken', "Bearer " + data.accessToken);
+                window.location.href = "/";
+            }
+
+        },
+        'error':(request, textStatus, error)=>{
+            Utils.printError(request, textStatus, error)
+            this.logoutBtn();
+        }
+        });
 }
 
   requestCheckLogin(){
@@ -134,8 +135,9 @@ export default class Auth extends React.Component {
               this.setLoginStatus(true);
         },
           error: (request, textStatus, error) => {
-              if (request.code === 501)
+              if (request.code === 501){
                   this.renewAccessToken()
+              }
               else{
                   Utils.printError(request, textStatus, error)
                   this.setLoginStatus(false);
