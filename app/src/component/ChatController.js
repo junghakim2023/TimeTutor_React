@@ -482,11 +482,6 @@ export default class ChatController extends React.Component {
                 type="text"
                 className="form-control"
                 placeholder="Type your Question"
-                onKeyPress={(event) => {
-                  if (event.key === 'Enter') {
-                    this.inputText();
-                  }
-                }}
               />
               <input
                 autoComplete="off"
@@ -497,7 +492,7 @@ export default class ChatController extends React.Component {
                 placeholder="Type your Answer"
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') {
-                    this.inputText();
+                    this.sendQnA();
                   }
                 }}
               />
