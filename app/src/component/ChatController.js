@@ -504,7 +504,7 @@ export default class ChatController extends React.Component {
               <button
                 onClick={() => this.sendQnA()}
                 className="btn btn-primary"
-                style={{ width: '85%' }}
+                style={{ width: '85%', marginRight:'10px' }}
               >
                 Send
               </button>
