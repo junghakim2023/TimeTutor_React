@@ -100,12 +100,14 @@ export default class Auth extends React.Component {
       $('#loginBtn').css("display", "none");
       $('#logoutBtn').css("display", "block");
       $('#welcomeText').css("display", "block");
+      $('#signupBtn').css("display", "none");
       $('#welcomeText').text("Welcome "+ localStorage.getItem('userName') +"!");
       this.state.highFunc(true);
   }
   else{
       $('#loginBtn').css("display", "block");
       $('#logoutBtn').css("display", "none");
+      $('#signupBtn').css("display", "block");
       $('#welcomeText').css("display", "none");
       this.state.highFunc(false);
   }
