@@ -10,9 +10,6 @@ export default class Auth extends React.Component {
             loginServerURL: null,
             highFunc : props.propFunction
           };
-
-
-        $('.comming-soon').click(function() {alert("Comming soon!")}); 
       }
 
     componentDidMount() {
@@ -22,6 +19,10 @@ export default class Auth extends React.Component {
   
     loginBtn(){
         window.location.href = this.state.loginServerURL + "?redirection="+window.location.href;
+    }
+
+    signupBtn(){
+        window.location.href = this.state.loginServerURL + "/signup?redirection="+window.location.href;
     }
 
     initPage(){
@@ -171,7 +172,7 @@ export default class Auth extends React.Component {
         return (
             <>
             <li className="nav-item active" id="welcomeText" style={{ display: 'none', color:'white',paddingRight: '7px'}}>Welcome! </li>
-            <button onClick={()=> alert("Comming Soon!")} className="nav-item active nav-item2" id="signup" style={{ display:'block',transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }}>Signup</button>
+            <button onClick={()=> this.signupBtn()} className="nav-item active nav-item2" style={{ display:'block',transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }}>Signup</button>
             <button onClick={()=> this.loginBtn()}   className="nav-item active nav-item2" style={{ transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out'}} id="loginBtn">Login</button>
             <button onClick={()=> this.logoutBtn()}   className="nav-item active nav-item2" style={{ display: 'none',transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out' }} id="logoutBtn">Logout</button>
             </>

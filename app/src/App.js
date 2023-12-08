@@ -34,10 +34,10 @@ export default class App extends React.Component {
                           <a className="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li className="nav-item">
-                          <a className="nav-link comming-soon">App Download</a>
+                          <a className="nav-link" onClick={()=> alert("Comming soon")} >App Download</a>
                         </li>
                         <li className="nav-item">
-                          <a className="nav-link comming-soon" tabIndex="-1">Upload File</a>
+                          <a className="nav-link" tabIndex="-1" onClick={()=> alert("Comming soon")}>Upload File</a>
                         </li>
                       </ul>
                       <Auth propFunction={this.highFunction}/>
