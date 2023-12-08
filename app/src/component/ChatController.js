@@ -128,10 +128,9 @@ export default class ChatController extends React.Component {
             this.sayToGuest();
             return;
         }
-
-        $("#questionInput").focus();
+        
         this.changeTo("qnaMaking");
-
+        $("#questionInput").focus();
         $("#ChatFunctingArea").css("height", "80%");
     }
 
