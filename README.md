@@ -1,6 +1,6 @@
 # TimeTutor_React
 [Frontend] A service that reminds you of what you have learned
-> http://ec2-3-99-218-40.ca-central-1.compute.amazonaws.com
+> http://ec2-35-182-117-228.ca-central-1.compute.amazonaws.com
 
 # [PC]
 ![image](https://github.com/junghakim2023/TimeTutor/assets/150854918/3e5bd1d2-fe8f-4093-ab82-3ad1788a053a)
