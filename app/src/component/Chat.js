@@ -96,7 +96,7 @@ export default class Chat extends React.Component {
         <div id="chat" className="chat-message-left pb-4">
           <div>
             <img
-              src="https://bootdey.com/img/Content/avatar/avatar3.png"
+              src="https://bootdey.com/img/Content/avatar/avatar8.png"
               className="rounded-circle mr-1"
               alt="Chris Wood"
               width="40"
