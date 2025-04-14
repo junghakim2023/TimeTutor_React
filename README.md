@@ -27,7 +27,7 @@
 ![image](https://github.com/junghakim2023/TimeTutor/assets/150854918/0b649080-c54d-436c-b848-da68d62b5c80)
 
 
-# Builing
+# Building
 Quick start :
 0. Create file .env in Root
 1. npm install
